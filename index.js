@@ -33,7 +33,7 @@ import cors from "cors";
     await OnlineSwitch.updateOne({ _id: onlineSwitchID }, [
       { $set: { isOnline: { $eq: [false, "$isOnline"] } } },
     ]);
-    res.status(200).redirect("/");
+    res.status(200).send();
   });
 
   app.listen(process.env.PORT, () =>
