@@ -29,7 +29,7 @@ import cors from "cors";
     res.send({ vladIsOnline: onlineSwitch.isOnline });
   });
 
-  app.post("/switch", async (req, res) => {
+  app.post("/api", async (req, res) => {
     await OnlineSwitch.updateOne({ _id: onlineSwitchID }, [
       { $set: { isOnline: { $eq: [false, "$isOnline"] } } },
     ]);
